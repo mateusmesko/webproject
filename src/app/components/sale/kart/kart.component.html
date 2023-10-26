@@ -1,0 +1,81 @@
+<div class="container text-center">
+    <div class="row">
+      <div class="col list-group">
+       
+            <li class="list-group-item active" aria-current="true">Produtos</li>
+         
+      <!-- Adicione este código dentro do seu loop *ngFor para exibir a lista de produtos -->
+<li *ngFor="let product of products" class="list-group-item">
+  {{ product.descrition }}
+  <button class="btn btn-primary" (click)="addToCart(product)">Adicionar ao Carrinho</button>
+</li>
+
+      </div>
+      <div class="col order-1">
+        <ul class="list-group list-group-flush">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Valor</th>
+                    <th scope="col">Quantia</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>arroz</td>
+                    <td>2,00</td>
+                    <td>2 un</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>feijão</td>
+                    <td>5,00</td>
+                    <td>3 un</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>faroffa</td>
+                    <td>8,00</td>
+                    <td>9 un</td>
+                  </tr>
+                </tbody>
+              </table>
+          </ul>
+      </div>
+
+      <div class="col order-3">
+        <div class="container text-center">
+            <div class="row">
+              <div class="col">
+                Valor total produtos
+              </div>
+              <div class="col">
+                30,50
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col">
+                deconto
+              </div>
+              <div class="col">
+                0,00
+              </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                  <div class="d-grid gap-2a">
+                    
+                    
+                    <button class="btn btn-primary" (click)="saveSale()" type="button">Finalizar venda</button>
+                  </div>
+                </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>

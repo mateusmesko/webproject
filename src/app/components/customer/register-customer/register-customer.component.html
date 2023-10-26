@@ -1,0 +1,70 @@
+<p>register-customer works!</p>
+
+<div class="well">
+
+<form #formCustomer="ngForm">
+   
+
+    <div class="form-group">
+        <label for="idade">Identificador:</label>
+        <input type="number" class="form-control" id="idade" name="idade"
+        [(ngModel)]="customer.identification" #idade="ngModel" required>
+        
+        <div *ngIf="idade.errors && (idade.dirty || idade.touched)"
+            class="alert alert-danger">
+            Digite o identificador do cliente.
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="firstName">Primeiro nome:</label>
+
+        <input type="text" class="form-control" id="firstName" name="firstName"
+        [(ngModel)]="customer.firstName"
+        #fisrtName="ngModel"
+        minlength="2" required>
+
+        <div *ngIf="fisrtName.errors && (fisrtName.dirty || fisrtName.touched)"
+            class="alert alert-danger">
+            <div [hidden]="!fisrtName.errors?.['required']">
+                Digite primeiro nome.
+            </div>
+
+            <div [hidden]="!fisrtName.errors?.['minlength']">
+                O nome deve conter ao menos 2 caracteres.
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="secondName">Segundo nome:</label>
+
+        <input type="text" class="form-control" id="secondName" name="secondName"
+        [(ngModel)]="customer.secondName"
+        #secondName="ngModel"
+        minlength="2" required>
+
+        <div *ngIf="secondName.errors && (secondName.dirty || secondName.touched)"
+            class="alert alert-danger">
+            <div [hidden]="!secondName.errors?.['required']">
+                Digite segundo nome nome.
+            </div>
+
+            <div [hidden]="!secondName.errors?.['minlength']">
+                O nome deve conter ao menos 2 caracteres.
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <button type="button" class="btn btn-primary"
+            (click)="update()"
+            [disabled]="!formCustomer.form.valid">
+            <i class="fa fa-save" aria-hidden="true"></i> SALVAR
+        </button>
+
+        <a [routerLink]="['/customer']" class="btn btn-secondary">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar
+        </a>
+    </div>
+</form>
+</div>

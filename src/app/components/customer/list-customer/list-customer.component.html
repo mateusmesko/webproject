@@ -1,0 +1,36 @@
+<table class="table table-striped table-bordered table-hover">
+    <tbody>
+        <tr>
+            <th>Identificador</th>
+            <th>Primeiro nome</th>
+            <th>Segundo nome</th>
+            <th class="text-center">
+                <a [routerLink]="['/customer/register']" href="#" title="Novo" alt="Novo"
+                class="btn btn-xs btn-success">
+                    <i class="fa fa-plus" aria-hidden="true"></i> Novo
+                </a>
+            </th>
+        </tr>
+
+        <tr *ngFor="let customer of customers">
+            <td> {{customer.identification}}</td>
+            <td> {{customer.firstName}}</td>
+            <td> {{customer.secondName}}</td>
+            <td class="text-center" style="width: 300px">
+                <button type="button" class="btn btn-secondary" (click)="openModal(customer)">
+                    <i class="fa fa-eye" aria-hidden="true"></i>ver vendas
+                </button>
+
+                <a [routerLink]="['/customer/register', customer.id]" href="#" title="Editar" alt="Editar" class="btn btn-xs btn-info">
+                    <i class="fa fa-edit" aria-hidden="true"></i> Editar
+                </a>
+                  
+                <a href="#" title="Remover" alt="Remover" class="btn btn-xs btn-danger"
+                (click)="remove($event, customer)">
+                    <i class="fa fa-times" aria-hidden="true"></i> Remover
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p *ngIf="customers.length == 0">Nenhuma pessoa cadastrada.</p>
